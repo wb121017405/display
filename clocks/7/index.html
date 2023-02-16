@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css" media="screen">
+      body {
+        background: #000;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 !important;
+      }
+
+      ul {
+        float: left;
+        margin: 50px;
+        width: 150px;
+        height: 150px;
+        position: relative;
+        transform-style: preserve-3d;
+        transform: rotateX(5deg) rotateY(-7deg);
+      }
+      ul:nth-child(2) {
+        margin-right: 30px !important;
+      }
+      ul:nth-child(4) {
+        margin-right: 30px !important;
+      }
+
+      .transition {
+        transition: all 0.5s;
+        transform: rotateY(-7deg) rotateX(95deg);
+      }
+
+      div {
+        /* margin-top: 200px; */
+        animation: sk 30s alternate infinite;
+      }
+
+      ul li {
+        text-align: center;
+        line-height: 170px;
+        font-size: 40px;
+        color: rgba(255, 255, 255, 0.2);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        transform: translateZ(75px);
+        border: 1px solid #615179;
+        font-weight: 400;
+        text-shadow: 0 0 5px #bb90fc, 0 0 6px #bb90fc, 0 0 7px #bb90fc,
+          0 0 8px #bb90fc, 0 0 9px #bb90fc;
+        padding-left: 15px;
+        box-sizing: border-box;
+      }
+
+      li:nth-of-type(1) {
+        font-size: 70px;
+        text-shadow: 0 0 5px #fff, 0 0 20px #fefcc9;
+        line-height: 150px;
+        color: #fff;
+      }
+
+      li:nth-of-type(2) {
+        transform: rotateX(90deg) translateZ(75px);
+      }
+
+      li:nth-of-type(3) {
+        transform: rotateX(90deg) translateZ(-75px);
+      }
+
+      li:nth-of-type(4) {
+        transform: rotateY(90deg) translateZ(75px);
+      }
+
+      li:nth-of-type(5) {
+        transform: rotateY(90deg) translateZ(-75px);
+      }
+
+      li:nth-of-type(6) {
+        transform: translateZ(-75px);
+      }
+
+      @keyframes sk {
+        from {
+          transform: rotateX(-10deg) rotateY(-15deg) rotateZ(-5deg);
+        }
+        to {
+          transform: rotateX(10deg) rotateY(15deg) rotateZ(5deg);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>
+      <ul class="">
+        <li class="front"></li>
+        <li class="top"></li>
+        <li class="bot"></li>
+        <li></li>
+        <li></li>
+        <li class="back"></li>
+      </ul>
+      <ul class="">
+        <li class="front"></li>
+        <li class="top"></li>
+        <li class="bot"></li>
+        <li></li>
+        <li></li>
+        <li class="back"></li>
+      </ul>
+      <ul class="">
+        <li class="front"></li>
+        <li class="top"></li>
+        <li class="bot"></li>
+        <li></li>
+        <li></li>
+        <li class="back"></li>
+      </ul>
+      <ul class="">
+        <li class="front"></li>
+        <li class="top"></li>
+        <li class="bot"></li>
+        <li></li>
+        <li></li>
+        <li class="back"></li>
+      </ul>
+      <ul class="">
+        <li class="front"></li>
+        <li class="top"></li>
+        <li class="bot"></li>
+        <li></li>
+        <li></li>
+        <li class="back"></li>
+      </ul>
+      <ul class="">
+        <li class="front"></li>
+        <li class="top"></li>
+        <li class="bot"></li>
+        <li></li>
+        <li></li>
+        <li class="back"></li>
+      </ul>
+    </div>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript">
+      var oul = document.querySelectorAll("ul");
+      var back = document.querySelectorAll(".back");
+      var front = document.querySelectorAll(".front");
+      var Top = document.querySelectorAll(".top");
+      var bot = document.querySelectorAll(".bot");
+      var btn = document.querySelector("button");
+      var arr = [];
+      arr[0] = Math.floor(new Date().getHours() / 10);
+      arr[1] = new Date().getHours() % 10;
+      arr[2] = Math.floor(new Date().getMinutes() / 10);
+      arr[3] = new Date().getMinutes() % 10;
+      arr[4] = Math.floor(new Date().getSeconds() / 10);
+      arr[5] = new Date().getSeconds() % 10;
+      for (var i = 0; i < arr.length; i++) {
+        front[i].innerHTML = arr[i];
+        back[i].innerHTML = arr[i] + 2 >= 10 ? (arr[i] + 2) % 10 : arr[i] + 2;
+        Top[i].innerHTML = arr[i] + 3 >= 10 ? (arr[i] + 3) % 10 : arr[i] + 3;
+        bot[i].innerHTML = arr[i] + 1 >= 10 ? (arr[i] + 1) % 10 : arr[i] + 1;
+      }
+
+      function time() {
+        var arr2 = [];
+        arr2[0] = Math.floor(new Date().getHours() / 10);
+        arr2[1] = new Date().getHours() % 10;
+        arr2[2] = Math.floor(new Date().getMinutes() / 10);
+        arr2[3] = new Date().getMinutes() % 10;
+        arr2[4] = Math.floor(new Date().getSeconds() / 10);
+        arr2[5] = new Date().getSeconds() % 10;
+
+        for (var i = 0; i < oul.length; i++) {
+          if (front[i].innerHTML != arr2[i]) {
+            oul[i].classList.add("transition");
+          }
+          oul[i].index = i;
+          oul[i].addEventListener("webkitTransitionEnd", function () {
+            front[this.index].innerHTML = arr2[this.index];
+            back[this.index].innerHTML =
+              arr2[this.index] + 2 < 10
+                ? arr2[this.index] + 2
+                : (arr2[this.index] + 2) % 10;
+            Top[this.index].innerHTML =
+              arr2[this.index] + 3 < 10
+                ? arr2[this.index] + 3
+                : (arr2[this.index] + 3) % 10;
+            bot[this.index].innerHTML =
+              arr2[this.index] + 1 < 10
+                ? arr2[this.index] + 1
+                : (arr2[this.index] + 1) % 10;
+
+            this.classList.remove("transition");
+          });
+        }
+      }
+
+      setInterval(time, 500);
+    </script>
+		<script src="/index.js"></script>
+  </body>
+</html>

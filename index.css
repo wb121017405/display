@@ -9,13 +9,32 @@ body {
   align-items: center;
   justify-content: center;
 }
-.navContainer {
-  background-color: #eee;
+.displayContainer {
   position: absolute;
   top: 20vh;
+}
+.container .image {
+  border-radius: 8px;
+}
+
+.navContainer {
   border-radius: 30px;
-  overflow: hidden;
   transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  overflow: hidden;
+}
+.navContainer .navbar-item {
+  padding: 10px 20px;
+}
+.navContainer a {
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 0;
+  align-items: stretch;
+  color: #333;
 }
 .fadeOut {
   opacity: 0;
