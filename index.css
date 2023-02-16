@@ -1,0 +1,22 @@
+html,
+body {
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden !important;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navContainer {
+  background-color: #eee;
+  position: absolute;
+  top: 20vh;
+  border-radius: 30px;
+  overflow: hidden;
+  transition: all 0.2s;
+}
+.fadeOut {
+  opacity: 0;
+}
