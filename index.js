@@ -18,7 +18,7 @@ fetch(myRequest, {
   .then(function (myJson) {
     var section = document.createElement("section");
     section.innerHTML = myJson;
-    section.classList.add("displayContainer")
+    section.classList.add("displayContainer");
     document.body.appendChild(section);
     // 加载模板头部后
     let hideTimer = setTimeout(() => {
@@ -27,6 +27,13 @@ fetch(myRequest, {
     document.querySelector("body").addEventListener("click", () => {
       const navContainer = document.querySelector(".navContainer");
       navContainer.classList.toggle("fadeOut");
+    });
+    let zoomScale = 1;
+    document.querySelector(".handleZoom").addEventListener("click", (e) => {
+      e.stopPropagation();
+      const bodyDom = document.querySelector("body");
+      bodyDom.style.transform = `scale(${zoomScale})`;
+      zoomScale += 0.1;
     });
   })
   .catch((error) => console.error(error));

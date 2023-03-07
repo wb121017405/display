@@ -11,7 +11,8 @@ body {
 }
 .displayContainer {
   position: absolute;
-  top: 20vh;
+  /* top: 20vh; */
+  z-index: 999;
 }
 .container .image {
   border-radius: 8px;
@@ -25,6 +26,7 @@ body {
   justify-content: center;
   background-color: #fff;
   overflow: hidden;
+  border: 1px solid #eee;
 }
 .navContainer .navbar-item {
   padding: 10px 20px;
